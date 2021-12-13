@@ -1,12 +1,11 @@
 import {configureStore} from '@reduxjs/toolkit';
-import counterReducer from '../slices/counterSlices';
-import postReducer from '../slices/postSlices';
-
+import TodoSlice from '../slices/Todo';
+import logger from 'redux-logger';
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
-    post: postReducer,
+    todo: TodoSlice,
   },
+  middleware: getDefaultMiddleware => getDefaultMiddleware().concat(logger),
 });
 
 export default store;
